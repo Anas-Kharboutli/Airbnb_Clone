@@ -6,6 +6,7 @@ import { Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./components/providers/ToasterProvider";
+import LoginModal from "./components/modals/LoginModal";
 
 
 const geistSans = localFont({
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={font.className}
       >
         <ToasterProvider />
+        <LoginModal />
         <RegisterModal />
         <Navbar />
         {children}
