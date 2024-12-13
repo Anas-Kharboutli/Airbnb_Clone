@@ -12,7 +12,9 @@ const Logo = () => {
     alt="Logo"
     height="100"
     width="100"
+    style={{height: '100%', width: 'auto'}}
     src="/images/logo.png"
+    priority
     />
       
   )

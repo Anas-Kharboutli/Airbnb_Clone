@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar";
 import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./components/providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
+import getCurrentUser from "./actions/getCurrentUser";
 
 
 const geistSans = localFont({
@@ -29,11 +30,13 @@ const font = Nunito({
   subsets: ["latin"]
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+   const currentUser = await getCurrentUser(); 
   return (
     <html lang="en">
       <body
@@ -42,7 +45,7 @@ export default function RootLayout({
         <ToasterProvider />
         <LoginModal />
         <RegisterModal />
-        <Navbar />
+        <Navbar currentUser={currentUser} />
         {children}
       </body>
     </html>
