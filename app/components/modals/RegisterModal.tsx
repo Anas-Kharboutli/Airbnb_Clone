@@ -37,12 +37,14 @@ const RegisterModal = () => {
         axios.post('/api/register', data)
         .then(() => {
             registerModal.onClose();
+            loginModal.onOpen();
         })
-        .catch((error) => { toast.error('Something went wrong.')})
+        .catch(() => { toast.error('Something went wrong.')})
         .finally(() => { setIsLoading(false)})
     };
 
     const toggle = useCallback(()=> {
+        toast.success("Success!")
         registerModal.onClose();
         loginModal.onOpen();
     }, [loginModal, registerModal])

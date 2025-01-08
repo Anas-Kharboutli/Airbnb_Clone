@@ -4,10 +4,10 @@ interface IParams {
     listingId?: string;
     userId?: string;
     authorId?: string;
-}
+} 
 
 export default async function getReservations(
-    params: IParams
+    params: IParams = {}
 ) {
 
     try {
@@ -44,7 +44,7 @@ export default async function getReservations(
             endDate: reservation.endDate.toISOString(),
             listing: {
                 ...reservation.listing,
-                createAt: reservation.listing.createAt.toISOString()
+                createdAt: reservation.listing.createAt.toISOString()
             }
         }));
         
