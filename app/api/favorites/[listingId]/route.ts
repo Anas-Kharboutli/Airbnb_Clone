@@ -1,14 +1,15 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
-
+import { NextRequest } from "next/server";  // Importing NextRequest
 
 interface IParams {
     listingId?: string;
 }
 
+
 export async function POST(
-    request: Request,
+    request: NextRequest,  
     { params }: { params: IParams }
 ) {
     const currentUser = await getCurrentUser();
@@ -39,8 +40,9 @@ export async function POST(
     return NextResponse.json(user);
 }
 
+
 export async function DELETE(
-    request: Request,
+    request: NextRequest,  
     { params }: { params: IParams }
 ) {
     const currentUser = await getCurrentUser();
@@ -49,7 +51,7 @@ export async function DELETE(
         return NextResponse.error();
     }
 
-    const { listingId } = params;
+    const { listingId } = params;  // Access listingId from params
 
     if (!listingId || typeof listingId !== 'string') {
         throw new Error("Invalid ID");
