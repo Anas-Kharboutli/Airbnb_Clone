@@ -56,7 +56,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         if(!reservation){
             return null;
         }
-
+        
         const start = new Date(reservation.startDate);
         const end = new Date(reservation.endDate);
 
@@ -92,9 +92,11 @@ const ListingCard: React.FC<ListingCardProps> = ({
             {location?.region}, {location?.label}
         </div>
         <div className="font-light text-neutral-500">
-        {reservation
+       
+       { reservationDate || data.category }
+        {/*reservation
     ? `${format(new Date(reservation.startDate), 'MMM dd, yyyy')} - ${format(new Date(reservation.endDate), 'MMM dd, yyyy')}`
-    : data.category}
+    : data.category */}
         </div>
         <div className="flex flex-row items-center gap-1">
             <div className="font-semibold">
