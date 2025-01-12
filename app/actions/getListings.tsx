@@ -93,7 +93,7 @@ export default async function getListings(
 
         return safeListings;
     }
-    catch(error: any) {
-        throw new Error(error);
+    catch(error: unknown) {
+        throw new Error(String(error));
     }
 }
