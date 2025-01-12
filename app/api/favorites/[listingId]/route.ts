@@ -9,18 +9,18 @@ interface IParams {
 
 export async function POST(
     request: Request,
-    { params }: { params: IParams}
+    { params }: { params: IParams }
 ) {
     const currentUser = await getCurrentUser();
 
-    if(!currentUser) {
+    if (!currentUser) {
         return NextResponse.error();
     }
 
-    const { listingId } = await params;
+    const { listingId } = params; 
 
-    if(!listingId || typeof listingId !== 'string'){
-        throw new Error("Invalid ID")
+    if (!listingId || typeof listingId !== 'string') {
+        throw new Error("Invalid ID");
     }
 
     const favoriteIds = [...(currentUser.favoriteIds || [])];
@@ -37,24 +37,22 @@ export async function POST(
     });
 
     return NextResponse.json(user);
-};
-
+}
 
 export async function DELETE(
     request: Request,
-    { params }: { params: IParams}
+    { params }: { params: IParams }
 ) {
-
     const currentUser = await getCurrentUser();
 
-    if(!currentUser) {
+    if (!currentUser) {
         return NextResponse.error();
     }
 
-    const { listingId } = await params;
+    const { listingId } = params;
 
-    if(!listingId || typeof listingId !== 'string'){
-        throw new Error("Invalid ID")
+    if (!listingId || typeof listingId !== 'string') {
+        throw new Error("Invalid ID");
     }
 
     let favoriteIds = [...(currentUser.favoriteIds || [])];
@@ -71,5 +69,4 @@ export async function DELETE(
     });
 
     return NextResponse.json(user);
-
 }
