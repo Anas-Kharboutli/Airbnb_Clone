@@ -9,8 +9,8 @@ interface IParams {
 
 
 export async function POST(
+    { params }: { params: IParams },
     request: NextRequest,  
-    { params }: { params: IParams }
 ) {
     const currentUser = await getCurrentUser();
 
@@ -42,8 +42,9 @@ export async function POST(
 
 
 export async function DELETE(
-    request: NextRequest,  
-    { params }: { params: IParams }
+    { params }: { params: IParams },
+    request: NextRequest
+    
 ) {
     const currentUser = await getCurrentUser();
 
