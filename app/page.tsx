@@ -18,6 +18,7 @@ const Home = async ({ searchParams }: HomeProps) => {
       <EmptyState showReset/>
     )
   }
+
   return (
     <Container>
       <div className="grid grid-cols-1 
