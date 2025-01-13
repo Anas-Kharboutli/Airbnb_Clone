@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getListingById from "@/app/actions/getLidtingById";
 import EmptyState from "@/app/components/EmptyState";
