@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from 'react';
 import Container from '../Container'
 import Categories from './Categories';
 import Logo from './Logo'
@@ -31,12 +32,16 @@ const Navbar: React.FC<NavbarProps> = ({
         '
         >
           <Logo />
+          <Suspense fallback={<div>Loading..</div>}>
           <Search />
+          </Suspense> 
           <UserMenu currentUser={currentUser}/>
         </div>
         </Container>
       </div>    
-      <Categories />  
+      <Suspense fallback={<div>Loading..</div>}>
+      <Categories /> 
+      </Suspense> 
     </div>
   )
 }

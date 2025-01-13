@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Nunito } from "next/font/google";
@@ -8,6 +10,7 @@ import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import SearchModal from "./components/modals/SearchModal";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "AirBnB",
@@ -31,7 +34,9 @@ export default async function RootLayout({
         className={font.className}
       >
         <ToasterProvider />
+        <Suspense fallback={<div>Loading..</div>}>
         <SearchModal />
+        </Suspense>
         <RentModal />
         <LoginModal />
         <RegisterModal />
