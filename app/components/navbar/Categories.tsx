@@ -109,14 +109,13 @@ const Categories = () => {
         overflow-x-auto">
 
             {catergories.map((item) => (
-                <Suspense fallback={<div>Loading..</div>}>
+              
                 <CategoryBox 
                 key={item.label}
                 label={item.label}
                 selected={category === item.label}
                 icon={item.icon}
                 />
-                </Suspense>
             ))}
 
         </div>

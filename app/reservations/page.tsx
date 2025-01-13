@@ -33,10 +33,12 @@ const ReservationPage = async () => {
     }
 
   return (
+    <div className="mt-8">
     <ReservationClient
     reservations={reservations}
     currentUser={currentUser}
     />
+    </div>
   )
 }
 

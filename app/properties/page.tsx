@@ -35,13 +35,12 @@ const PropertiesPage = async () => {
     }
 
     return (
-            <>
+        <div className="mt-8">
             <PropertiesClient
             listings={listings}
             currentUser={currentUser}
-            />
-
-            </> 
+            /> 
+        </div>
     )
 }
 

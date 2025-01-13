@@ -21,10 +21,12 @@ const FavoritesPage = async () => {
     }
 
   return (
+    <div className="mt-8">
     <FavoritesClient 
     listings={listings}
     currentUser={currentUser}
     />
+    </div>
   )
 }
 
